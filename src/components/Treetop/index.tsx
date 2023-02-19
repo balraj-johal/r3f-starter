@@ -41,7 +41,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements['group']) {
                   new Color('#feffe1').convertLinearToSRGB(),
                 ] 
               },
-              thresholds: { value: [0.1, 0.5, 0.9] }
+              thresholds: { value: [0.2, 0.925, 0.975] }
             }}
         />
       </mesh>
