@@ -22,7 +22,9 @@ export default function Model({ ...props }: JSX.IntrinsicElements['group']) {
   
   return (
     <group ref={group} {...props} dispose={null}>
-      <mesh castShadow receiveShadow geometry={nodes.Foliage.geometry} material={materials['Stylized Foliage']} position={[0.33, -0.05, -0.68]} />
+      <mesh geometry={nodes.Foliage.geometry} position={[0,0,0]}>
+        <meshNormalMaterial />
+      </mesh>
     </group>
   )
 }
