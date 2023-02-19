@@ -6,6 +6,8 @@ import * as THREE from 'three'
 import { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { ToonShader } from '../../shaders/ToonShader'
+import { Color, IUniform, Vector3 } from 'three'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -16,14 +18,32 @@ type GLTFResult = GLTF & {
   }
 }
 
+
 export default function Model({ ...props }: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>(null)
   const { nodes } = useGLTF('/treetop-transformed.glb') as GLTFResult
-  
+
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh geometry={nodes.Foliage.geometry} position={[0,0,0]}>
-        <meshNormalMaterial />
+        
+        <shaderMaterial
+          attach="material"
+          {...ToonShader}
+          uniforms={
+            {
+              lightDirection: { value: new Vector3(15, 15, 15) },
+              colors: { 
+                value: [
+                  new Color('#d1654f').convertLinearToSRGB(),
+                  new Color('#e8b0af').convertLinearToSRGB(),
+                  new Color('#eed0bd').convertLinearToSRGB(),
+                  new Color('#feffe1').convertLinearToSRGB(),
+                ] 
+              },
+              thresholds: { value: [0.1, 0.5, 0.9] }
+            }}
+        />
       </mesh>
     </group>
   )
