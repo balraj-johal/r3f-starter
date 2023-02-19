@@ -9,10 +9,6 @@ function App() {
       <Canvas>
         <OrbitControls />
         <Treetop />
-        <mesh>
-          <boxGeometry />
-          <meshStandardMaterial />
-        </mesh>
 
         <ambientLight intensity={0.1} />
         <directionalLight
