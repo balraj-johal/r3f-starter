@@ -1,4 +1,4 @@
-import { OrbitControls, Box } from '@react-three/drei'
+import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import './App.css'
 import Lighting from './components/Lighting'
