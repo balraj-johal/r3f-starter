@@ -2,7 +2,7 @@
 function Lighting() {
   return (
     <>
-      <ambientLight intensity={0.1} />
+      <ambientLight intensity={0.5} />
       <directionalLight
         color="white"
         position={[15, 15, 15]}

@@ -26,7 +26,6 @@ export default function Model({ ...props }: JSX.IntrinsicElements['group']) {
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh geometry={nodes.Foliage.geometry} position={[0,0,0]}>
-        
         <shaderMaterial
           attach="material"
           {...ToonShader}
@@ -38,10 +37,11 @@ export default function Model({ ...props }: JSX.IntrinsicElements['group']) {
                   new Color('#d1654f').convertLinearToSRGB(),
                   new Color('#e8b0af').convertLinearToSRGB(),
                   new Color('#eed0bd').convertLinearToSRGB(),
-                  new Color('#feffe1').convertLinearToSRGB(),
+                  new Color('#ffffff').convertLinearToSRGB(),
                 ] 
               },
-              thresholds: { value: [0.2, 0.925, 0.975] }
+              thresholds: { value: [0.2, 0.925, 1] }
+              // thresholds: { value: [0.2, 0.925, 0.975] }
             }}
         />
       </mesh>
